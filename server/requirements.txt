@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+pandas
+numpy
+matplotlib
+seaborn
+plotly
+pydantic
+pyyaml
+python-dotenv
+langchain
+langchain-ollama
+langchain-chroma
+langchain-huggingface
