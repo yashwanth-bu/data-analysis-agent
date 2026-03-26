@@ -1,0 +1,104 @@
+/* ───────────────────────────────────────────
+   DATA-AGENT  ·  Global Styles
+   Aesthetic: Julius.ai — Clean Dark SaaS
+─────────────────────────────────────────── */
+
+:root {
+  /* Backgrounds */
+  --bg:           #0f0f10;
+  --bg-sidebar:   #141416;
+  --bg-card:      #1a1a1f;
+  --bg-input:     #1e1e24;
+  --bg-hover:     rgba(255,255,255,0.04);
+  --bg-active:    rgba(139,92,246,0.1);
+
+  /* Borders */
+  --border:       rgba(255,255,255,0.07);
+  --border-focus: rgba(139,92,246,0.6);
+
+  /* Brand — Julius purple */
+  --purple:       #8b5cf6;
+  --purple-light: #a78bfa;
+  --purple-dim:   rgba(139,92,246,0.18);
+  --purple-glow:  0 0 0 3px rgba(139,92,246,0.15);
+
+  /* Text */
+  --text:         #f1f0f5;
+  --text-sub:     #9896a4;
+  --text-muted:   #5c5a68;
+
+  /* Status */
+  --green:        #22c55e;
+  --red:          #ef4444;
+  --amber:        #f59e0b;
+
+  /* Fonts */
+  --font-sans:    'Inter', 'DM Sans', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Misc */
+  --radius-sm:    6px;
+  --radius:       10px;
+  --radius-lg:    14px;
+  --radius-xl:    20px;
+  --transition:   0.15s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.18); }
+
+/* Selection */
+::selection { background: var(--purple-dim); color: var(--purple-light); }
+
+/* Resets */
+button { cursor: pointer; border: none; outline: none; font-family: inherit; background: none; }
+input, textarea { outline: none; font-family: inherit; }
+a { color: inherit; text-decoration: none; }
+
+/* Utility */
+.mono { font-family: var(--font-mono); }
+.grid-bg { display: none; }  /* remove old grid */
+.vignette { display: none; } /* remove old vignette */
+
+/* Keyframes */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

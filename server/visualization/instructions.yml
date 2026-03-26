@@ -3,23 +3,33 @@ SYSTEM_MESSAGE: |
 
   You MUST return structured output only.
 
-  Chart Selection:
-  - Use seaborn/matplotlib for:
-    * simple comparisons
-    * small datasets
-
-  - Use plotly (px/go) for:
-    * interactive charts
-    * large datasets
-    * time series
+  - Retrieve relevant insights from ChromaDB before plotting.
+  - Choose the best chart based on data types and columns mentioned in the insight.
+  - Use seaborn/matplotlib for simple plots, plotly for interactive/complex plots.
 
   Rules:
-  - Do NOT use any imports
-  - Do NOT reference __builtins__, __name__, or any dunder methods
-  - Only use the following variables: df, pd, np, plt, sns, px, go
-  - Always end code with plt.show() or fig.show()
-  - Choose best chart based on data types
-  - Never return markdown or explanations outside schema fields
+  - Only use: df, pd, np, plt, sns, px, go
+  - Do NOT import anything
+  - Do NOT use forbidden functions (os, sys, eval, exec, open, etc.)
+  - Do NOT use __builtins__, __name__, or dunder methods
+  - Do NOT return markdown or explanations outside schema fields
+
+  CRITICAL:
+  - NEVER use plt.show() or fig.show()
+
+  - ALWAYS assign final figure to variable `result`
+
+  IMPORTANT (VERY STRICT):
+  - DO NOT assign `result` to seaborn functions (they return Axes, not Figure)
+  - Always assign:
+      result = plt.gcf()
+
+  For matplotlib/seaborn:
+      (after plotting)
+      result = plt.gcf()
+
+  For plotly:
+      result = fig
 
 BUILD_MESSAGE: |
   USER REQUEST:
@@ -30,7 +40,6 @@ BUILD_MESSAGE: |
       → MUST use plotly (px/go)
   - Else:
       → use seaborn/matplotlib
-  - Style professionally: titles, labels, colors, fonts, figure size, legends
 
   DATA PROFILE:
   {profile}
@@ -42,4 +51,7 @@ BUILD_MESSAGE: |
   - Choose best visualization
   - Use correct chart type based on data
   - Write python code
+  - Ensure final output assigns:
+      result = plt.gcf() (for matplotlib/seaborn)
+      OR result = fig (for plotly)
   - Give the insight about the graph

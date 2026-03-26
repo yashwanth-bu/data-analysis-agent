@@ -1,4 +1,7 @@
 from langchain_ollama import ChatOllama
+import dotenv, os
+
+dotenv.load_dotenv()
 
 class OllamaClient:
 
@@ -8,7 +11,7 @@ class OllamaClient:
 
         self.LLM = ChatOllama(
             model=model,
-            base_url="http://127.0.0.1:11434",
+            base_url=os.getenv("BASE_URL"),
             temperature=0.1,
         )
 

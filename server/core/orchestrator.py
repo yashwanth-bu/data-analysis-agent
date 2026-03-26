@@ -29,10 +29,10 @@ class Orchestrator:
     
     def read_datasets(self, content):
         try:
-            # self.df = pd.read_csv(
-            #     io.BytesIO(content), encoding="utf-8", encoding_errors="replace"
-            # )
-            self.df = pd.read_csv(content)
+            self.df = pd.read_csv(
+                io.BytesIO(content), encoding="utf-8", encoding_errors="replace"
+            )
+            # self.df = pd.read_csv(content)
             return True
         except Exception:
             return False

@@ -35,8 +35,6 @@ class Visualizer:
 
        context = self.vectordb.retrieve_context(prompt)
 
-       print(context)
-
        model = self.llm.get_llm(VisualResponse)
 
        print("[DEBUG] Building prompt for LLM...")
